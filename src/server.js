@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
-const { Server } = require('http');
+require('dotenv').config();
+
 
 
 const app = express();
@@ -14,7 +15,7 @@ const io = require('socket.io')(server);
 io.on('connection', socket => {
     socket.on('connectRoom', box => {
         socket.join(box);
-    })
+    });
 });
 
 
